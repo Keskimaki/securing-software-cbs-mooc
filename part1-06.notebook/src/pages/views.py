@@ -4,7 +4,15 @@ from django.shortcuts import render
 
 def addPageView(request):
 	items = request.session.get('items', [])
+	item = request.POST.get('content', '').strip()
 
+	if len(item) > 0:
+		items.append(item)
+
+	if len(items) > 10:
+		items.pop(0)
+
+	request.session['items'] = items
 
 	return render(request, 'pages/index.html', {'items' : items})
 
@@ -12,6 +20,8 @@ def addPageView(request):
 def erasePageView(request):
 	items = request.session.get('items', [])
 
+	items = []
+	request.session['items'] = items
 
 	return render(request, 'pages/index.html', {'items' : items})
 

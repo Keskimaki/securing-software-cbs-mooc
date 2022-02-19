@@ -8,15 +8,20 @@
         <h1>Hello Notes!</h1>
 
         <ul>
+            {% for item in items %}
+            <li>{{item}}</li>
+            {% endfor %}
 		</ul>
-
-
 
         <h2>Add content to list</h2>
 
+        <form action="/add" method="POST">
+            {% csrf_token %}
+            <input type="text" name="content"/>
+            <input type="submit"/>
+        </form>
 
         <h2>Clear everything</h2>
-
-
+        <a href="/erase">erase</a>
     </body>
 </html>
