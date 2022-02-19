@@ -6,7 +6,13 @@ import socket
 def get_accessible_ports(address, min_port, max_port):
 	found_ports = []
 
-	# write code here
+	s = socket.socket()
+	for port in range(min_port, max_port+1):
+		try:
+			s.connect((address, port))
+			found_ports.append(port)
+		except:
+			pass
 
 	return found_ports
 
