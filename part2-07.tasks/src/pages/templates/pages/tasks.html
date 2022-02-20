@@ -21,10 +21,20 @@
         <!-- the javascript has been embedded to the same site -->
         <script inline="javascript">
             // The URL to the application server that holds the tasks.
-            var url = null;
+            var url = "./tasks";
 
             function loadTasks() {
-                // Write loading code here 
+                var xmlHttp = new XMLHttpRequest();
+
+                xmlHttp.onreadystatechange = () => {
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        var response = JSON.parse(xmlHttp.responseText);
+                        response.tasks.map(addTaskToList);
+                    }
+                }
+
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
             }
 		</script>
 
