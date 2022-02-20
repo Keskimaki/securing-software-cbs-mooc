@@ -50,3 +50,23 @@ checksum = '52b32e70fb6241680b36b6b5d20f3c37'
 [exercises."part2-13.sessionhijack"]
 id = 153932
 checksum = 'a2630c54c836230368964bf314fb9dc0'
+
+[exercises."part3-14.injection"]
+id = 153916
+checksum = '80adfa18b00b5cdaa906850cae8c7247'
+
+[exercises."part3-15.hihaupload"]
+id = 153919
+checksum = 'db1532c79c969742dd32dd8bc2eb2355'
+
+[exercises."part3-16.xss"]
+id = 153918
+checksum = '357692670d472aa51036841690a16799'
+
+[exercises."part3-17.safety"]
+id = 153917
+checksum = 'f4297142dfbe93cc8bbaee8f1953d7da'
+
+[exercises."part3-18.csrf"]
+id = 153920
+checksum = '73927ddb0213b9cd19a87d0b8611e596'
