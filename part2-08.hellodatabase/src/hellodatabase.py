@@ -4,14 +4,8 @@ import sqlite3
 
 
 def read_database(conn):
-	agents = []
-
-	# output should be a list of pairs
-	# agents = [(id1, name1), (id2, name2), (id3, name3), ...] ordered by id
-
-
-	# write code here
-
+	cursor = conn.cursor()
+	agents = cursor.execute('SELECT * FROM Agent ORDER BY id;').fetchall()
 	return agents
 
 
