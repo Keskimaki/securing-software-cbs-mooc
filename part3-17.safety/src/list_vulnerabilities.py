@@ -4,7 +4,15 @@ import json
 
 
 def get_vulnerabilities(name, db):
-	return []
+	result = []
+
+	data = json.load(db)
+	vulnerabitilies = data[name]
+
+	for vul in vulnerabitilies:
+		result.append((vul['id'], vul['v'], vul['cve']))
+
+	return result
 
 
 def main(argv):
