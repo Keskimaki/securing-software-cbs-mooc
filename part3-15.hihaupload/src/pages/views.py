@@ -8,13 +8,17 @@ from .models import File
 @login_required
 def deleteView(request):
 	f = File.objects.get(pk=request.POST.get('id'))
-	f.delete()
+	if f.owner == request.user:
+		f.delete()
 	return redirect('/')
 	
 
 @login_required
 def downloadView(request, fileid):
 	f = File.objects.get(pk=fileid)
+
+	if f.owner != request.user:
+		return redirect('/')
 
 	filename = f.data.name.split('/')[-1]
 	response = HttpResponse(f.data, content_type='text/plain')
