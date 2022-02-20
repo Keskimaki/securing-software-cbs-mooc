@@ -22,3 +22,31 @@ checksum = 'c5d9001a85083791330da1a7a75620ed'
 [exercises."part1-06.notebook"]
 id = 153928
 checksum = '584e321e8bc343e84eaed52384ed614f'
+
+[exercises."part2-07.tasks"]
+id = 153930
+checksum = '295a1cff58dd4359867b6fb5eb05e9ae'
+
+[exercises."part2-08.hellodatabase"]
+id = 153935
+checksum = 'd3dc9cd1e9a4ab701df3331aa7948e9f'
+
+[exercises."part2-09.helloinsert"]
+id = 153931
+checksum = 'a5a87c7cacb82e1a612b02f5213b4609'
+
+[exercises."part2-10.hellowebwithdatabase"]
+id = 153933
+checksum = '4dc7fc012ecb69a52c8dad2df9b6945f'
+
+[exercises."part2-11.banktransfer"]
+id = 153934
+checksum = 'f2eed0858cf280671034efc754b2018f'
+
+[exercises."part2-12.simplebanking"]
+id = 153936
+checksum = '52b32e70fb6241680b36b6b5d20f3c37'
+
+[exercises."part2-13.sessionhijack"]
+id = 153932
+checksum = 'a2630c54c836230368964bf314fb9dc0'
