@@ -18,6 +18,8 @@ def quizView(request, tid):
 
 
 def answerView(request, tid, aid):
+	if (request.session['tid'] != tid or request.session['over']):
+		return redirect('/cheater')
 		
 	topic = find_topic(tid)
 
@@ -28,6 +30,7 @@ def answerView(request, tid, aid):
 		request.session['level'] = level
 
 		if level == len(topic['questions']):
+			request.session['over'] = True
 			return redirect('/finish/')
 
 		return render(request, 'pages/question.html', {'topic' : topic, 'question' : topic['questions'][level]})
@@ -36,12 +39,18 @@ def answerView(request, tid, aid):
 
 
 def incorrectView(request):
+	request.session['over'] = True
 	return render(request, 'pages/incorrect.html')
 
 
 def finishView(request):
-	return render(request, 'pages/finish.html')
-
+	try:
+		if (request.session['over']):
+			return render(request, 'pages/finish.html')
+		else:
+			return redirect('/cheater')
+	except:
+		return redirect('/cheater')
 
 def cheaterView(request):
 	return render(request, 'pages/cheater.html')
@@ -54,9 +63,11 @@ def thanksView(request):
 
 
 def topicView(request, tid):
+	request.session['tid'] = tid
 	topic = find_topic(tid)
 	return render(request, 'pages/topic.html', {'topic' : topic})
 
 
 def topicsView(request):
+	request.session['over'] = False
 	return render(request, 'pages/topics.html', {'questions' : questions})
