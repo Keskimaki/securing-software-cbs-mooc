@@ -74,3 +74,11 @@ checksum = '73927ddb0213b9cd19a87d0b8611e596'
 [exercises."part4-19.password"]
 id = 153921
 checksum = 'c33e7dcfdce3fd5594ae2dc93ea46ee6'
+
+[exercises."part5-20.configuration"]
+id = 153923
+checksum = '36d34c4f15dc9b355ee035171b68a972'
+
+[exercises."part5-21.millionaire"]
+id = 153922
+checksum = '59d33346001242d14d4bf2d2519024e3'
