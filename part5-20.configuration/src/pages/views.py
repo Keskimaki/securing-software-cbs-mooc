@@ -6,14 +6,36 @@ from django.contrib.auth.models import User
 from django.db import transaction
 from .models import Account
 
+@transaction.atomic
+def transfer(sender, receiver, amount):
+	if amount < 0 or sender == receiver:
+		return
+
+	acc1 = Account.objects.get(user=sender)
+	acc2 = Account.objects.get(user=receiver)
+
+	if acc1.balance < amount:
+		return
+
+	acc1.balance -= amount
+	acc2.balance += amount
+
+	acc1.save()
+	acc2.save()
+
+
 
 @login_required
-@csrf_exempt
 def transferView(request):
 	
-	if request.method == 'GET':
-		to = User.objects.get(username=request.GET.get('to'))
-		amount = int(request.GET.get('amount'))
+	if request.method == 'POST':
+		frm = request.user
+		to = User.objects.get(username=request.POST.get('to'))
+		amount = int(request.POST.get('amount'))
+
+		transfer(frm, to, amount)
+
+
 	
 	return redirect('/')
 
