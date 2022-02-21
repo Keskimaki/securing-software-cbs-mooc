@@ -70,3 +70,7 @@ checksum = 'f4297142dfbe93cc8bbaee8f1953d7da'
 [exercises."part3-18.csrf"]
 id = 153920
 checksum = '73927ddb0213b9cd19a87d0b8611e596'
+
+[exercises."part4-19.password"]
+id = 153921
+checksum = 'c33e7dcfdce3fd5594ae2dc93ea46ee6'
